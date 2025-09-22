@@ -2,7 +2,7 @@
   <img src="./.github/logo.png" alt="poster">
 </p>
 
-# Testes de performance em API com K6 (DummyJSON)
+# Testes de performance com K6 (Log in e Listagem de produtos - API dummyJSON)
 
 ## Preparação 📍
 1. Primeiramente, clone este projeto com opção HTTPS ou SSH.
@@ -21,7 +21,6 @@
    
    Para executar em modo headless: _pytest -o "addopts=" --browser=nome-browser-suportado_
 
-## Extra ➕
 5. Na pasta 'reports' temos os relatórios dos testes executados.
 OBS: Toda a codificação do projeto foi comentada para fácil compreensão e documentação (exceto arquivos gerados automaticamente).
 
