@@ -47,6 +47,6 @@ export default () => {
 
   console.log('Token recebido:', res.json('accessToken'))
 
-  // Tempo de espera (Think Time)
+  // Think time
   sleep(1)
 }

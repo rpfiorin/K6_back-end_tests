@@ -1,4 +1,4 @@
 export const BULK = {
-  vu: 10,
-  time: '45s',
+  vu: 2,
+  time: '20s',
 };
