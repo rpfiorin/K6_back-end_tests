@@ -12,9 +12,8 @@
 3. Considerando ambiente Windows, após instalado, abra o arquivo 'utils/options.js' para escolher a volumetria desejada/tempo de execução e limites.
 
 ## Execução ⚡
-4. Com o CMD aberto no diretório raíz do projeto, dispare o comando _k6 run tests/login.js_ ou _k6 run tests/products.js_ 
-
-5. Na pasta 'reports' temos os relatórios dos testes executados previamente com valores de 'options.js' já testados.
+4. Com o CMD aberto no diretório raíz do projeto, dispare os comandos _k6 run tests/login.js_ e _k6 run tests/products.js_ 
+5. Na pasta 'reports' temos os relatórios dos testes executados previamente com valores de 'options.js' já utilizados.
 
 OBS: Toda a codificação do projeto foi comentada para fácil compreensão e documentação.
 
