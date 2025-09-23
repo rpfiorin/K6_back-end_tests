@@ -1,10 +1,17 @@
 // Importações necessárias.
 import { BASE_URL, ENDPOINTS } from './utils/urls.js'
-import { BULK } from './utils/load_config.js'
+import { BULK, LIMITS } from './utils/options.js'
 import http from 'k6/http'
 import execution from 'k6/execution'
 import { SharedArray } from 'k6/data'
 import { check, sleep } from 'k6'
+import { htmlReport } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js';
+
+export function handleSummary(data) {
+  return {
+    'reports/post_login.html': htmlReport(data),
+  };
+}
 
 // Define corpo da requisição, convertendo o objeto JavaScript para uma string JSON
 const users = new SharedArray('usuários', () => {
@@ -15,6 +22,10 @@ export const options = {
   iterations: users.length,
   vus: BULK.vu,
   duration: BULK.time,
+  thresholds: {
+    http_req_duration: LIMITS.req_duration,
+    http_req_failed: LIMITS.req_failed
+  }
 }
 
 // Código do teste (função principal)
@@ -41,8 +52,8 @@ export default () => {
 
   check(res, {
     'status da requisição é 200 (OK)': (r) => r.status === 200,
-    'resposta contém um token': (r) => r.body.includes('accessToken'),
-    'o nome de usuário na resposta está correto': (r) => r.json('username') === currentUser.username,
+    'resposta contém token de acesso': (r) => r.body.includes('accessToken'),
+    'nomes de usuário na resposta estão corretos': (r) => r.json('username') === currentUser.username,
   })
 
   console.log('Token recebido:', res.json('accessToken'))
