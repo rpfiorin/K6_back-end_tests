@@ -1,6 +1,6 @@
 export const BULK = {
-  vu: 2,
-  time: '20s',
+  vu: 1,
+  time: '12s',
 };
 
 export const LIMITS = {

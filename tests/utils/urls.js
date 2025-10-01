@@ -5,4 +5,5 @@ export const BASE_URL = 'https://dummyjson.com';
 export const ENDPOINTS = {
   login: '/auth/login',
   products: '/products',
+  me: '/auth/me'
 };
